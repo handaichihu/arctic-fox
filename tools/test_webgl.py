@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """测试不同 Chrome 启动参数下 WebGL 是否可用"""
 import subprocess, time, os, signal, sys, random, shutil
+from pathlib import Path
 
+HERE = Path(__file__).resolve().parent
 CHROME = "/home/zjh/.hermes/tools/chromium-1208/chrome-linux64/chrome"
 ENV = dict(os.environ)
 ENV["DISPLAY"] = "unix:/mnt/wslg/.X11-unix/X0"
@@ -30,7 +32,7 @@ for name, args, extra_env in combos:
                          start_new_session=True)
     time.sleep(3.2)
     out = subprocess.run([sys.executable.replace("python3", "python3"), "-c", "pass"], capture_output=True)
-    r = subprocess.run(["node", "/home/zjh/voxel-fox/tools/probe.js", str(port)],
+    r = subprocess.run(["node", str(HERE / "probe.js"), str(port)],
                        capture_output=True, text=True, timeout=25)
     print(f"[{name:20s}] -> {r.stdout.strip() or r.stderr.strip()[:120]}", flush=True)
     try:
