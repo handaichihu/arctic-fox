@@ -1,5 +1,7 @@
 # 寒带赤狐 · Arctic Fox
 
+在线版：**https://handaichihu.github.io/arctic-fox/**
+
 一只体素（voxel）赤狐坐在冰原上的 Three.js 场景，打开即可拖拽旋转、滚轮缩放、点击互动。
 
 纯静态页面，零构建、零依赖安装：Three.js r128 已经放在 `vendor/` 里，所有脚本都是相对路径的 `<script>` 标签，直接双击 `index.html` 也能跑。
