@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>寒带赤狐 · 体素世界</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div class="vignette"></div>
+
+  <header class="hud">
+    <h1>寒带赤狐</h1>
+    <p>ARCTIC FOX</p>
+  </header>
+
+  <nav class="controls">
+    <button id="btn-rotate" class="on" type="button">自动旋转</button>
+    <button id="btn-snow" class="on" type="button">飘雪</button>
+    <button id="btn-reset" type="button">重置视角</button>
+  </nav>
+
+  <footer class="tip">拖拽旋转 · 滚轮缩放 · 点一下狐狸</footer>
+
+  <div class="loading" id="loading"><i></i><span>正在堆雪花…</span></div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script src="js/voxel.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    requestAnimationFrame(function () {
+      var l = document.getElementById('loading');
+      if (l) l.classList.add('hide');
+    });
+  </script>
+</body>
+</html>
